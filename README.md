@@ -1,52 +1,37 @@
 #Snowfall
 
-Simple easy-to-use and easy-to-set-up lightweight plugin for snowfall effect on your site.
+Simple easy-to-use and easy-to-set-up lightweight library for snowfall effect on your site. No dependencies required.
 
 ##Contents
-- description;
-- installation and set up;
-- customization;
-- credits;
+- Installation;
+- Customization;
+- Credits;
 - TODOs.
 
-##Description
-Snowfall plugin uses snowfall library to set up snow effect. For more info about the library [go here](https://github.com/KupnoH/snowfall).
-Plugin is very easy to install and use.
-Though some coding needed to set this plugin up it's very easy and *Installation* section explains it in details.
-
-##Installation and set up
-###Installation
-To install the plugin do the same steps you do for installing wordpress plugins.
-###Set up
-The set up for the plugin is a bit harder, but I'll explain it in details:
-The plugin allows to set up snowfall effect in 2 ways:
-1. via WordPress actions
-2. manually.
-
-####1. WordPress actions.
-Plugin provides action `snowfall_main_tag_action` which adds necessary blocks and queues necessary scripts. This is why this set up is easier.
-To make it work add the following code right after `<body>` opening tag:
-
-`<?php do_action('snowfall_main_tag_action'); ?>`
-
-When this action will be added, and the plugin will be enabled you will see the snowfall effect on your site. 
-####2. Manual set up
-As mentioned above manual set up is a bit harder than set up through Wordpress actions.
-To set up plugin manually you need to:
-- add `<div id="some-unique-id"></div>` right after `<body>` opening tag. 
-**NOTE:** the `id` attribute for this block should be unique.
-- create the following javascript snippet: `new Snowfall("some-unique-id");` **NOTE:** `some-unique-id` from this code snippet should be the same as `id` attribute from the block you created above.
-- enqueue the code snippet from the step above after `snowfall` script (`snowfall` - is a script's handle for more info see [wp_enqueue_script](https://developer.wordpress.org/reference/functions/wp_enqueue_script/))
-- now activate the plugin if it's still disabled and you will see the snowfall effect on your site.
+##Installation
+The set up for this library is very easy.
+- download library's files and place them in your project's assets;
+- add library's styles in a header. You can use `snowfall.min.css`, or `snowfall.css` or even `src/snowfall.css` which is generated from `snowfall.scss` file;
+- add library's script in a footer. You can use `snowfall.min.js` or `src/snowfall.js`;
+- right after opening `<body>` tag add `<div id="some-unique-id></div>` block, where specify `some-unique-id`;
+- right after library's script add `new Snowfall("some-unique-id");` where you should specify the unique id from the previous step;
+- save all the files and voila!
 
 ##Customization
-To customize the snowfall effect(increase/decrease number of snowflakes, increase/decrease it's size/color etc) you have 2 options:
-- do it manually yourself (some coding knowledge required) 
-- ask me to do it for you
+To customize the snowfall effect(increase/decrease number of snowflakes, increase/decrease it's size/color etc) you need to edit `src/_snow_vars.scss`. But, please, make sure you have scss compiler installed. Alternatively, you can edit `snowfall.css`.
+Most of the things placed into `src/_snow_vars.scss`. So you just can edit them.
+There are 3 snowflakes layers for a better snow effect, which reflects on the number of some variables.
+Here the short description for variables:
+- $snowflake1_color - color for the first layer of snowflakes (#fafafa - default);
+- $snowflake2_color - color for the second layer of snowflakes (#f9f9f9 - default);
+- $snowflake3_color - color for the third layer of snowflakes (#fbfbfb - default);
+- $snowflakes_num - the number of snowflakes (default - 150);
+- $snowflakes_size - snowflake size (default - 1rem);
+- $snowflakes_step - snowflake size change step (default - 0.3rem) (used for 2nd and 3rd layers);
+- $snowflake_animation_duration - used for snowflake's "lifetime" (default - 8s);
+- $snowflake_animation_duration_step - used for changing snowflake's "lifetime" (default - 2s) (used for 2nd and 3rd layers);
 
-If you chose to do it yourself, please refer to [snowfall library documentation](https://github.com/KupnoH/snowfall).
-
-If you want me to do it for you, please write me an email to `kupnoh25@gmail.com` with Subject `Snowfall customization` and we would discuss further details.
+Of course, there are more stuff to change if you want. So feel free to browse through `src/snowfall.scss` and edit it as you wish. Though editing only this variables can change snowfall behavior.
 
 ##Credits
 Huge thanks to [redstapler](https://redstapler.co/) because the snowfall library this plugin uses based on [cool tutorial from them](https://www.youtube.com/watch?v=8eyAoBBucHk) which you can use as an example of how it looks like.
