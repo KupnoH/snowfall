@@ -33,10 +33,15 @@ Here the short description for variables:
 
 Of course, there are more stuff to change if you want. So feel free to browse through `src/snowfall.scss` and edit it as you wish. Though editing only this variables can change snowfall behavior.
 
+If you think this instructions are incomplete or you want to ask me something, feel free to write me an email `kupnoh25@gmail.com`.
+
 ##Credits
 Huge thanks to [redstapler](https://redstapler.co/) because the snowfall library this plugin uses based on [cool tutorial from them](https://www.youtube.com/watch?v=8eyAoBBucHk) which you can use as an example of how it looks like.
+
 Also, huge thanks to [me](https://github.com/KupnoH), because I did snowfall library available for almost every site and made a port of it for WordPress.
+
 Big thanks and tons of love to my wife, who inspires me a lot. Love you, darling.
+
 And thanks to my cat.
 
 ##TODOs:
